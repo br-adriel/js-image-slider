@@ -6,6 +6,8 @@ btnProx.addEventListener("click", proxImagem);
 const btnVoltar = document.getElementById("btnVoltar");
 btnVoltar.addEventListener("click", voltarImagem);
 
+const seletores = [...document.querySelectorAll(".seletores button")];
+
 function proxImagem() {
   let encontrou = false;
   let indice = 0;
@@ -22,8 +24,10 @@ function proxImagem() {
 
   if (indice === imagens.length - 1) {
     imagens[0].classList.add("visivel");
+    atualizarSeletores(imagens[0].getAttribute("src"));
   } else {
     imagens[indice + 1].classList.add("visivel");
+    atualizarSeletores(imagens[indice + 1].getAttribute("src"));
   }
 }
 
@@ -43,7 +47,18 @@ function voltarImagem() {
 
   if (indice === 0) {
     imagens[imagens.length - 1].classList.add("visivel");
+    atualizarSeletores(imagens[imagens.length - 1].getAttribute("src"));
   } else {
     imagens[indice - 1].classList.add("visivel");
+    atualizarSeletores(imagens[indice - 1].getAttribute("src"));
   }
+}
+
+function atualizarSeletores(src) {
+  seletores.map((seletor) => {
+    seletor.classList.remove("ativo");
+    if (seletor.dataset.src === src) {
+      seletor.classList.add("ativo");
+    }
+  });
 }
