@@ -7,6 +7,9 @@ const btnVoltar = document.getElementById("btnVoltar");
 btnVoltar.addEventListener("click", voltarImagem);
 
 const seletores = [...document.querySelectorAll(".seletores button")];
+seletores.map((seletor) =>
+  seletor.addEventListener("click", () => acionarSeletor(seletor.dataset.src))
+);
 
 function proxImagem() {
   let encontrou = false;
@@ -61,4 +64,16 @@ function atualizarSeletores(src) {
       seletor.classList.add("ativo");
     }
   });
+}
+
+function acionarSeletor(src) {
+  imagens.map((img) => {
+    if (img.getAttribute("src") === src) {
+      img.classList.add("visivel");
+    } else {
+      img.classList.remove("visivel");
+    }
+  });
+
+  atualizarSeletores(src);
 }
