@@ -77,3 +77,5 @@ function acionarSeletor(src) {
 
   atualizarSeletores(src);
 }
+
+setInterval(proxImagem, 5000);
