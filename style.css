@@ -15,14 +15,20 @@ body {
   width: min(800px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background: #3e517a;
+  border-radius: 4px;
+  margin-top: 8px;
 }
 
 .slider img {
   display: none;
   height: 100%;
-  width: auto;
+  max-width: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .slider .visivel {
@@ -37,9 +43,31 @@ body {
 }
 
 .slider button {
-  padding: 10px;
   border: none;
-  background: #eee;
-  border-radius: 8px;
+  background: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
+  transition: 0.3s background;
+}
+
+.slider button:hover {
+  background: #eee;
+}
+
+.slider .seletores {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.slider .seletores button {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
+
+.slider .seletores .ativo {
+  background-color: #8ee3f5;
 }
